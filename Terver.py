@@ -29,8 +29,8 @@ def get_mathematical_expectation(n=1):
 
 
 def get_dispersion():
-    """D = E(t)^2 - E(t^2)"""
-    return pow(get_mathematical_expectation(), 2) - get_mathematical_expectation(2)
+    """D = E(t^2) - E(t)^2"""
+    return get_mathematical_expectation(2) - pow(get_mathematical_expectation(), 2)
 
 
 if __name__ == '__main__':
