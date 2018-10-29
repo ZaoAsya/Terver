@@ -33,6 +33,20 @@ def get_dispersion():
     return get_mathematical_expectation(2) - pow(get_mathematical_expectation(), 2)
 
 
+def get_mean_square_deviation():
+    """r = D^(1/2)"""
+    return pow(get_dispersion(), 1/2)
+
+
+def get_median(distribution):
+    """distribution = {value: possibility, ...}"""
+    possibility = 0
+    for value in distributionLaw.keys():
+        possibility += distribution[value]
+        if possibility >= 1/2:
+            return value
+
+
 if __name__ == '__main__':
     """T = max(k + m, 2m)"""
     distributionLaw = get_distribution_law()
@@ -42,3 +56,5 @@ if __name__ == '__main__':
         print('   ', value, '->', distributionLaw[value])
     print('>>>Mathematical expectation =', get_mathematical_expectation())
     print('>>>Dispersion =', get_dispersion())
+    print('>>>Mean square deviation =', get_mean_square_deviation())
+    print('>>>Median =', get_median(distributionLaw))
