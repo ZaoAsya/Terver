@@ -23,7 +23,6 @@ def get_distribution_law(res, drv1, drv2):
 
 def get_mathematical_expectation(drv, n=1):
     """E(T) = Sum[Ti*Pi]"""
-    # print('exp',drv)
     E = 0
     for v in drv.keys():
         E += pow(v, n) * drv[v]
