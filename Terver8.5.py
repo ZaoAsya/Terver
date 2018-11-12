@@ -7,7 +7,7 @@ DistrLaw = {'k': {i: Fraction(1, 10) for i in range(0, 10)},
 
 GetValue = {'c1': lambda x, y: ((x * y) // 10, Fraction(1, 100)),
             'c2': lambda x, y: ((x * y) % 10, Fraction(1, 100)),
-            'c3': lambda x, y: (x * y, DistrLaw['c1'][x] * DistrLaw['c2'][y])}
+            'c3': lambda x, y: (((x * y) // 10) * ((x * y) % 10), Fraction(1, 100))}
 
 
 def get_distribution_law(v):

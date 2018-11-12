@@ -8,7 +8,7 @@ DistrLaw = {'k': {i: Fraction(1, 6) for i in range(1, 7)},
 
 GetValue = {'t_kn302': lambda k, m: (max(k + m, 2 * m), DistrLaw['k'][k] * DistrLaw['m'][m]),
             't_kb301': lambda k, m: (min(pow(2, k), m), DistrLaw['k'][k] * DistrLaw['m'][m]),
-            't3': lambda x, y: (x * y, DistrLaw['t_kn302'][x] * DistrLaw['t_kb301'][y])}
+            't3': lambda k, m: (max(k + m, 2 * m) * min(pow(2, k), m), DistrLaw['k'][k] * DistrLaw['m'][m])}
 
 
 def get_distribution_law(res, drv1, drv2):
@@ -50,7 +50,7 @@ def get_median(distribution):
 
 def get_covariance(math_exp_1, math_exp_2):
     """cov(c1, c2) = E(c1*c2)-E(c1)*E(c2)"""
-    t3 = get_distribution_law('t3', 't_kn302', 't_kb301')
+    t3 = get_distribution_law('t3', 'k', 'm')
     return get_mathematical_expectation(t3) - math_exp_1 * math_exp_2
 
 
